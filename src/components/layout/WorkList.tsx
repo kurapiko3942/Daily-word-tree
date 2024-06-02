@@ -26,7 +26,7 @@ export function WorkList() {
         <TabsTrigger value="Games">Games</TabsTrigger>
       </TabsList>
       <TabsContent value="account">
-        <Card>
+        <Card className="">
           <CardHeader>
             <CardTitle>Account</CardTitle>
             <CardDescription>
