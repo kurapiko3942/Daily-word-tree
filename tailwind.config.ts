@@ -1,13 +1,14 @@
 import type { Config } from "tailwindcss"
 
-const config = {
+const config: Config = {
   darkMode: ["class"],
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+    './src/stories/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   prefix: "",
   theme: {
     container: {
@@ -18,7 +19,6 @@ const config = {
       },
     },
     extend: {
-      
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -53,11 +53,17 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        'neon-blue': '#00ffff',
+        'neon-purple': '#ff00ff',
+        'dark-bg': '#1a1a1a',
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      boxShadow: {
+        'neon': '0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff',
       },
       keyframes: {
         "accordion-down": {
@@ -76,6 +82,6 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+}
 
 export default config

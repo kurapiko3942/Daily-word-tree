@@ -5,26 +5,49 @@ import Link from 'next/link';
 import LottieAnimation from '../components/LottieAnimation';
 import Image from 'next/image';
 import spaceRain from "../../public/spaceRain.png";
+import CurrentCard from '@/components/Home/currentCard';
+import Hukidashi from '@/components/Home/hukidashi';
 
 export default function Home() {
   const [isProfileHovered, setIsProfileHovered] = useState(false);
   const [isWorksHovered, setIsWorksHovered] = useState(false);
   const [isHistoryHovered, setIsHistoryHovered] = useState(false);
+  //スペースレインちゃんとお話しする機能（（吹き出し表示）
+  const [isTalking, setIsTalking] = useState(false);
+
+  const handleImageClick = () => {
+    setIsTalking(!isTalking);
+  };
+  
 
   return (
     <div className='overflow: scroll'>
       <div className='bg-black text-white sticky top-0'>Launch Our Worlds</div>
       <div className='relative h-[68vh] bg-[url("/ImageImg.webp")] before:absolute before:inset-0 before:bg-black before:opacity-50 before:content-[""]'>
-        <div className='absolute inset-0'>
+
+      <div className=''>
+        <div className='flex absolute inset-0 '>
+          <div className='relative m-4'>
+            <CurrentCard/>
+          </div>
+          <div className='relative m-4'>
+          <CurrentCard/>
+          </div>
           <Image 
             src={spaceRain} 
             alt="猫は最高に可愛い"
             height={550}
             className='absolute right-0 '
+            onClick={handleImageClick}
           />
+          {isTalking && (
+              <div className='absolute bottom-10 right-0'>
+                <Hukidashi children={true}/>
+              </div>
+            )}
         </div>
       </div>
-
+    </div>
       <div className='min-h-screen flex flex-col'>
         <Link href="/Profile">
           <div
