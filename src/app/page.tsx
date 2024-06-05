@@ -7,6 +7,8 @@ import Image from 'next/image';
 import spaceRain from "../../public/spaceRain.png";
 import CurrentCard from '@/components/Home/currentCard';
 import Hukidashi from '@/components/Home/hukidashi';
+import AudioPlayer from '@/components/layout/audioPlayer';
+
 
 export default function Home() {
   const [isProfileHovered, setIsProfileHovered] = useState(false);
@@ -22,17 +24,22 @@ export default function Home() {
 
   return (
     <div className='overflow: scroll'>
-      <div className='bg-black text-white sticky top-0'>Launch Our Worlds</div>
+      <div className=' bg-black text-white sticky top-0'>
+        <div className='flex '>
+        <div >Launch Our Worlds</div>
+        <div className='absolute right-3'>
+        <AudioPlayer/>
+        </div>
+        </div>
+      </div>
       <div className='relative h-[68vh] bg-[url("/ImageImg.webp")] before:absolute before:inset-0 before:bg-black before:opacity-50 before:content-[""]'>
 
       <div className=''>
         <div className='flex absolute inset-0 '>
-          <div className='relative m-4'>
+          <div className='flex relative m-4 items-center '>
             <CurrentCard/>
           </div>
-          <div className='relative m-4'>
-          <CurrentCard/>
-          </div>
+          
           <Image 
             src={spaceRain} 
             alt="猫は最高に可愛い"
